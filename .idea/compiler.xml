@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring6-001-revelation" />
         <module name="spring6-002-first" />
+        <module name="spring-003-dependency-injection" />
       </profile>
     </annotationProcessing>
   </component>

@@ -5,7 +5,13 @@
   </component>
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/spring6-002-first/src/main/resources/spring.xml</file>
+          <file>file://$MODULE_DIR$/spring6-002-first/src/main/resources/beans.xml</file>
+          <file>file://$MODULE_DIR$/spring6-002-first/src/main/resources/xml/beans.xml</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
 </module>

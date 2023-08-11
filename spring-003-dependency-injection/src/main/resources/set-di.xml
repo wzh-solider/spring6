@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 声明外部bean -->
+    <bean id="orderDaoBean" class="com.powernode.spring6.dao.impl.OrderDaoImpl"/>
+    <bean id="orderServiceBean" class="com.powernode.spring6.service.impl.OrderServiceImpl">
+        <!-- 使用ref属性来引入，就是注入外部bean -->
+        <property name="orderDao" ref="orderDaoBean"/>
+    </bean>
+
+    <bean id="orderServiceBean2" class="com.powernode.spring6.service.impl.OrderServiceImpl">
+        <!-- 使用内部bean -->
+        <property name="orderDao">
+            <bean class="com.powernode.spring6.dao.impl.OrderDaoImpl"/>
+        </property>
+    </bean>
+
+    <!-- 使用value进行简单数据类型注入 -->
+    <!--
+        Spring允许的简单数据类型:
+        public static boolean isSimpleValueType(Class<?> type) {
+            return Void.class != type && Void.TYPE != type
+                    && (ClassUtils.isPrimitiveOrWrapper(type)
+                        || Enum.class.isAssignableFrom(type)
+                        || CharSequence.class.isAssignableFrom(type)
+                        || Number.class.isAssignableFrom(type)
+                        || Date.class.isAssignableFrom(type)
+                        || Temporal.class.isAssignableFrom(type)
+                        || URI.class == type
+                        || URL.class == type
+                        || Locale.class == type
+                        || Class.class == type);
+        }
+        [八种基本数据类型(包装类) | Enum | CharSequence | Number | Date | URI | URL | Locale | Class]
+     -->
+    <bean id="userBean" class="com.powernode.spring6.bean.User">
+        <property name="name" value="name"/>
+        <property name="password" value="password"/>
+        <property name="age" value="10"/>
+    </bean>
+
+    <!-- 测试简单类型 -->
+    <bean id="simpleValueTypeBean" class="com.powernode.spring6.bean.SimpleValueType">
+        <property name="age" value="10"/>
+        <property name="age1" value="10"/>
+        <property name="flag" value="false"/>
+        <property name="flag1" value="true"/>
+        <property name="c" value="c"/>
+        <property name="c1" value="c"/>
+        <property name="season" value="SPRING"/>
+        <property name="username" value="zhang san"/>
+        <property name="clazz" value="java.lang.String"/>
+    </bean>
+
+    <!-- 为数据源注入数据 -->
+    <bean id="myDataSourceBean" class="com.powernode.spring6.bean.MyDataSource">
+        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/dbname"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+    </bean>
+</beans>

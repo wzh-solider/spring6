@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 通过bean管理对象 -->
+    <bean id="userDaoBean" class="com.powernode.spring6.dao.impl.UserDaoImpl"/>
+    <bean id="vipDaoBean" class="com.powernode.spring6.dao.impl.VipDaoImpl"/>
+    <bean id="userServiceBean" class="com.powernode.spring6.service.impl.UserServiceImpl">
+        <!-- set注入将对象联系起来 -->
+        <!--
+            name: set方法名去除set【setUserDao ==> userDao】
+            ref: 指定需要注入bean的id
+        -->
+        <property name="userDao" ref="userDaoBean"/>
+        <property name="vipDao" ref="vipDaoBean"/>
+    </bean>
+
+    <bean id="orderDaoBean" class="com.powernode.spring6.dao.impl.OrderDaoImpl"/>
+    <bean id="orderServiceBean" class="com.powernode.spring6.service.impl.OrderServiceImpl">
+        <!-- 构造注入将对象联系起来 -->
+        <!--
+            ref: 指定需要注入bean的id
+         -->
+        <!--
+            根据配置的参数数量，自动匹配相应参数数量的构造器
+            并且自动进行类型匹配，顺序不会影响
+         -->
+        <!-- <constructor-arg ref="userDaoBean"/>-->
+        <!-- <constructor-arg ref="orderDaoBean"/>-->
+
+        <!--
+            index: 有参构造器的参数下标【从0开始】
+        -->
+        <!-- <constructor-arg index="0" ref="orderDaoBean"/> -->
+        <!-- <constructor-arg index="1" ref="userDaoBean"/> -->
+
+        <!--
+            name: 构造器参数的参数名
+         -->
+        <constructor-arg name="userDao" ref="userDaoBean"/>
+        <constructor-arg name="orderDao" ref="orderDaoBean"/>
+    </bean>
+</beans>
