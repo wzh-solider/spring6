@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 总体和p命名空间相同 -->
+    <bean id="birthBean" class="java.util.Date"/>
+    <bean id="catBean" class="com.powernode.spring6.bean.Cat"
+          c:name="小黑" c:age="8" c:birth-ref="birthBean"/>
+</beans>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="personBean" class="com.powernode.spring6.bean.Person">
+        <property name="names">
+            <!-- 有序可重复 -->
+            <list>
+                <value>张三</value>
+                <value>李四</value>
+                <value>王五</value>
+                <value>王五</value>
+                <value>王五</value>
+            </list>
+        </property>
+
+        <property name="addresses">
+            <!-- 无序，不可重复-->
+            <set>
+                <value>北京</value>
+                <value>上海</value>
+                <value>天津</value>
+                <value>天津</value>
+                <value>天津</value>
+            </set>
+        </property>
+
+        <property name="sessions">
+            <map>
+                <!-- 非简单数据类型 -->
+                <!-- <entry key-ref="..." value-ref="..."/>-->
+
+                <!-- 简单数据类型 -->
+                <entry key="1" value="abc"/>
+                <entry key="2" value="def"/>
+                <entry key="3" value="ghi"/>
+            </map>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="url">jdbc:mysql://localhost:3306/bdName</prop>
+                <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

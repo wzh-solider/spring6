@@ -3,6 +3,7 @@ package com.powernode.spring6.service.impl;
 import com.powernode.spring6.dao.OrderDao;
 import com.powernode.spring6.dao.UserDao;
 import com.powernode.spring6.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author Solider

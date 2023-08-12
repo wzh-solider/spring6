@@ -3,6 +3,17 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="mathBean" class="com.powernode.spring6.bean.MathBean">
+        <!-- 使用转义字符 -->
+        <!-- <property name="result" value="1 &lt; 2"/> -->
+
+        <!-- 将特殊字符放到<![CDATA[]]>域中 -->
+        <!-- 此方法只能使用value标签 -->
+        <property name="result">
+            <value><![CDATA[1 < 2]]></value>
+        </property>
+    </bean>
+
     <!-- 声明外部bean -->
     <bean id="orderDaoBean" class="com.powernode.spring6.dao.impl.OrderDaoImpl"/>
     <bean id="orderServiceBean" class="com.powernode.spring6.service.impl.OrderServiceImpl">

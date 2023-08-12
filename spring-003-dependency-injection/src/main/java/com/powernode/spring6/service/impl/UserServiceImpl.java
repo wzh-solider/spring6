@@ -23,6 +23,12 @@ public class UserServiceImpl implements UserService {
         this.vipDao = vipDao;
     }
 
+
+//    public UserServiceImpl(UserDao userDao, VipDao vipDao) {
+//        this.userDao = userDao;
+//        this.vipDao = vipDao;
+//    }
+
     @Override
     public void save() {
         userDao.insert();

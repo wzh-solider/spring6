@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 自动装配是基于set方法的 -->
+    <!-- 根据名字自动装配 -->
+    <!-- 通过set方法的名字，自动匹配相应id的bean对象 -->
+    <bean id="orderService" class="com.powernode.spring6.service.impl.OrderServiceImpl" autowire="byName"/>
+    <bean id="orderDao" class="com.powernode.spring6.dao.impl.OrderDaoImpl"/>
+
+    <!-- 根据类型自动装配 -->
+    <!-- 根据set方法中参数的类型，自动匹配相应类型的bean对象 -->
+    <bean class="com.powernode.spring6.dao.impl.UserDaoImpl"/>
+    <bean class="com.powernode.spring6.dao.impl.VipDaoImpl"/>
+    <bean id="userServiceBean" class="com.powernode.spring6.service.impl.UserServiceImpl" autowire="byType"/>
+</beans>

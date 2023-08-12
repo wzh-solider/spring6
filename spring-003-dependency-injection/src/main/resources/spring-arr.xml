@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="w1" class="com.powernode.spring6.bean.Women">
+        <property name="name" value="小花"/>
+    </bean>
+    <bean id="w2" class="com.powernode.spring6.bean.Women">
+        <property name="name" value="小白"/>
+    </bean>
+    <bean id="w3" class="com.powernode.spring6.bean.Women">
+        <property name="name" value="小红"/>
+    </bean>
+
+    <bean id="yuQian" class="com.powernode.spring6.bean.QianDaYe">
+        <!-- 数组中，存储的是简单数据类型 -->
+        <property name="aihaos">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+
+        <!-- 数组中，存储的是复杂数据类型 -->
+
+        <property name="women">
+            <array>
+                <ref bean="w1"/>
+                <ref bean="w2"/>
+                <ref bean="w3"/>
+            </array>
+        </property>
+    </bean>
+</beans>

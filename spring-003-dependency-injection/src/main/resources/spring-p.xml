@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 使用spring的p命名空间 -->
+
+    <!--
+        1、开启p命名空间
+        粘贴复制：xmlns:p="http://www.springframework.org/schema/p" 放到头文件
+     -->
+
+    <!--
+        2、使用p命名空间
+        p:属性名 ==> 简单数据类型
+        p:属性名-ref ==> 复杂数据类型
+    -->
+    <bean id="dateBean" class="java.util.Date"/>
+    <bean id="dogBean" class="com.powernode.spring6.bean.Dog"
+          p:name="小白" p:age="10" p:date-ref="dateBean"/>
+</beans>

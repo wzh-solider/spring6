@@ -128,3 +128,292 @@
 <bean id="clazzBean" class="com.powernode.spring6.bean.Clazz"/>
 ```
 
+4、数组属性赋值
+```xml
+
+<bean id="w1" class="com.powernode.spring6.bean.Women">
+    <property name="name" value=""/>
+</bean>
+<bean id="w2" class="com.powernode.spring6.bean.Women">
+    <property name="name" value=""/>
+</bean>
+
+<bean id="" class="">
+<!-- 数组中，存储的是简单数据类型 -->
+<property name="...">
+    <array>
+        <value></value>
+        <value></value>
+        ...
+    </array>
+</property>
+
+<!-- 数组中，存储的是复杂数据类型 -->
+<property name="...">
+    <array>
+        <ref bean="w1"/>
+        <ref bean="w2"/>
+        ...
+    </array>
+</property>
+</bean>
+```
+
+5、集合属性赋值
+- List集合
+  - ```xml
+    <bean id="" class="">
+          <property name="names">
+              <!-- 有序可重复 -->
+              <list>
+                  <value>张三</value>
+                  <value>李四</value>
+                  <value>王五</value>
+                  <value>王五</value>
+                  <value>王五</value>
+              </list>
+          </property>
+    </bean>
+    ```
+- Set集合
+  - ```xml
+    <bean id="" class="">
+          <property name="names">
+              <!-- 无序，不可重复 -->
+              <set>
+                  <value>张三</value>
+                  <value>李四</value>
+                  <value>王五</value>
+                  <value>王五</value>
+                  <value>王五</value>
+              </set>
+          </property>
+    </bean>
+    ```
+- Map集合
+  - ```xml
+    <bean id="" class="">
+        <property name="sessions">
+            <map>
+                <!-- 非简单数据类型 -->
+                <!-- <entry key-ref="..." value-ref="..."/>-->
+
+                <!-- 简单数据类型 -->
+                <entry key="1" value="abc"/>
+                <entry key="2" value="def"/>
+                <entry key="3" value="ghi"/>
+            </map>
+        </property>
+    </bean>
+    ```
+  - Properties集合(继承了Hashtable<Object,Object>，规定其key-value都必须为String)
+    - ```xml
+      <bean id="" classs="">
+        <property name="properties">
+            <props>
+                <prop key="url">jdbc:mysql://localhost:3306/bdName</prop>
+                <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+            </props>
+        </property>
+      </bean>
+      ```
+
+6、null值注入
+```xml
+<bean id="" class="">
+    <!-- 不提供value或ref属性，则此属性为null -->
+    <porperty name="driver"/>
+  
+    <!-- 如果将value值设置为null，仅仅只是将字符串"null"注入 -->
+    <porperty name="driver" value="null"/>
+    
+   <!-- 手动将name值设置为空 -->
+    <property name="driver">
+      <null/>
+    </property>
+</bean>
+```
+
+7、注入特殊符号
+
+两种解决方案：
+- 使用转义字符代替
+  - | 特殊字符 | 转义字符    |
+    |------|---------|
+    | \>   | \&gt;   | 
+    | <    | \&lt;   |
+    | '    | \&apos; | 
+    | "    | \&quot; | 
+    | &    | \&amp;  | 
+- 将含有特殊符号的字符串放到：<![CDATA[]]>当中
+  - 放在<![CDATA[]]>区中的数据不会被XML文件解析器解析
+```xml
+
+<bean id="" class="">
+    <!-- 使用转义字符 -->
+    <property name="result" value="1 &lt; 2"/>
+
+    <!-- 将特殊字符放到<![CDATA[]]>域中 -->
+    <!-- 此方法只能使用value标签 -->
+    <property name="result">
+        <value><![CDATA[1 < 2]]></value>
+    </property>
+</bean>
+```
+
+8、p命名空间注入
+> 底层基于set方法注入
+> 用于适当简化set注入
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 使用spring的p命名空间 -->
+
+    <!--
+        1、开启p命名空间
+        粘贴复制：xmlns:p="http://www.springframework.org/schema/p" 放到头文件
+     -->
+
+    <!--
+        2、使用p命名空间
+        p:属性名 ==> 简单数据类型
+        p:属性名-ref ==> 复杂数据类型
+    -->
+    <bean id="dateBean" class="java.util.Date"/>
+    <bean id="" class=""
+          p:name="小白" p:age="10" p:date-ref="dateBean"/>
+</beans>
+```
+
+9、util命名空间注入
+> 简化开发，实现代码复用
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- util命名空间注入 -->
+
+    <!--
+        头部插入：
+        xmlns:util="http://www.springframework.org/schema/util"
+        修改.xsd文件
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+        ==> 启用util约束
+    -->
+
+    <!-- 使用util命名空间注入 -->
+    <util:properties id="prop">
+        <prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+        <prop key="url">jdbc:mysql://localhost:3306/dbName</prop>
+        <prop key="username">root</prop>
+        <prop key="password">123456</prop>
+    </util:properties>
+
+    <bean id="mds" class="com.powernode.spring6.source.MyDataSource">
+        <property name="properties" ref="prop"/>
+    </bean>
+    <bean id="mds1" class="com.powernode.spring6.source.MyDataSource1">
+        <property name="properties" ref="prop"/>
+    </bean>
+    <bean id="mds2" class="com.powernode.spring6.source.MyDataSource2">
+        <property name="properties" ref="prop"/>
+    </bean>
+</beans>
+```
+
+### 构造注入
+> c命名空间注入，底层基于构造方法注入
+> 适当简化构造注入的开发
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 总体和p命名空间相同 -->
+    <!-- 
+        进行传值的时候，也可以使用下标
+        c:_0="小黑"
+        c:_1="8"
+        c:_2-ref="birthBean"
+     -->
+    <bean id="birthBean" class="java.util.Date"/>
+    <bean id="catBean" class="com.powernode.spring6.bean.Cat"
+          c:name="小黑" c:age="8" c:birth-ref="birthBean"/>
+</beans>
+```
+
+### 基于XML的自动装配byName(基于set方法)
+```xml
+<!-- 根据名字自动装配 -->
+<!-- 通过set方法的名字，自动匹配相应id的bean对象 -->
+<bean id="orderService" class="com.powernode.spring6.service.impl.OrderServiceImpl" autowire="byName"/>
+
+<bean id="orderDao" class="com.powernode.spring6.dao.impl.OrderDaoImpl"/>
+```
+![img.png](img.png)
+
+### 基于XML的自动装配byType(基于set方法)
+```xml
+<!-- 根据类型自动装配 -->
+<!-- 根据set方法中参数的类型，自动匹配相应类型的bean对象 -->
+<bean class="com.powernode.spring6.dao.impl.UserDaoImpl"/>
+<bean class="com.powernode.spring6.dao.impl.VipDaoImpl"/>
+<bean id="userServiceBean" class="com.powernode.spring6.service.impl.UserServiceImpl" autowire="byType"/>
+```
+
+### Spring引入外部属性文件
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        1、引入context命名空间，设置约束
+            xmlns:context="http://www.springframework.org/schema/context"
+            xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+         2、使用context命名空间
+     -->
+    <!-- location自动从类路径中加载文件 -->
+    <context:property-placeholder location="jdbc.properties"/>
+
+    <bean id="mds" class="com.powernode.spring6.bean.MyDataSource">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+    </bean>
+</beans>
+```
+```properties
+driver=com.mysql.cj.jdbc.Driver
+url=jdbc:mysql://localhost:3306/dbName
+username=root
+password=123456
+```
+注意：当我们进行这样设置，并配置的时候，spring默认从本机的系统环境变量加载配置
+所以，当匹配到系统环境变量root的时候，输出的是主机root，而不是我们配置的root
+![img_1.png](img_1.png)
+
+这样非常不利于管理，因此通常我们将配置文件写为
+```properties
+jdbc.driver=com.mysql.cj.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/dbName
+jdbc.username=root
+jdbc.password=123456
+```

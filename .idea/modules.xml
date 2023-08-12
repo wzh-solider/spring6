@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/spring-003-dependency-injection.iml" filepath="$PROJECT_DIR$/spring-003-dependency-injection.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring6.iml" filepath="$PROJECT_DIR$/spring6.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring6-002-first.iml" filepath="$PROJECT_DIR$/spring6-002-first.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6-004-scope.iml" filepath="$PROJECT_DIR$/spring6-004-scope.iml" />
     </modules>
   </component>
 </project>
