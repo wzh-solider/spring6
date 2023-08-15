@@ -63,8 +63,7 @@ public class UserTest {
 }
 ```
 
-![image-20230813214423391](C:\Users\旧瘾\AppData\Roaming\Typora\typora-user-images\image-20230813214423391.png)
-
+![constructor_method_result.png](img%2Fconstructor_method_result.png)
 
 
 ## 通过简单工厂模式实例化
@@ -227,7 +226,7 @@ public class BeanInstantiationTest {
 }
 ```
 
-![image-20230815160658012](C:\Users\旧瘾\AppData\Roaming\Typora\typora-user-images\image-20230815160658012.png)
+![image-20230815160658012](img/simple_factory_result.png)
 
 
 
@@ -323,7 +322,7 @@ public class BeanInstantiationTest {
 }
 ```
 
-![image-20230815171351508](C:\Users\旧瘾\AppData\Roaming\Typora\typora-user-images\image-20230815171351508.png)
+![image-20230815171351508](img/factoryBean_result.png)
 
 
 
@@ -433,7 +432,7 @@ public class BeanInstantiationTest {
 
 ```
 
-![image-20230815181836551](C:\Users\旧瘾\AppData\Roaming\Typora\typora-user-images\image-20230815181836551.png)
+![image-20230815181836551](img/implDateByFactoryBean.png)
 
 
 
