@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dateFactoryBean" class="com.powernode.spring6.factory.DateFactoryBean">
+        <constructor-arg name="strDate" value="2003-2-10"/>
+    </bean>
+    <bean id="student" class="com.powernode.spring6.bean.Student">
+        <property name="birth" ref="dateFactoryBean"/>
+    </bean>
+
+
+
+
+    <!-- 通过构造方法，实例化 -->
+    <bean id="userBean" class="com.powernode.spring6.bean.User"/>
+
+    <!-- 通过简单工厂模式进行实例化 -->
+    <!-- factory-method: 指定工厂类中的静态方法，告诉spring框架执行这个方法可以获取Bean对象 -->
+    <bean id="vipBean" class="com.powernode.spring6.factory.VipFactory" factory-method="get"/>
+
+    <!-- 通过工厂方法模式进行实例化 -->
+    <!-- factory-bean: 告诉spring框架，需要找到哪个工厂对象 -->
+    <!-- factory-method: 告诉spring框架，需要实现这个工厂对象的哪个方法 -->
+    <bean id="gunFactory" class="com.powernode.spring6.factory.GunFactory"/>
+    <bean id="gun" factory-bean="gunFactory" factory-method="get"/>
+
+    <!-- 通过实现FactoryBean接口的方法进行实例化 -->
+    <bean id="personFactory" class="com.powernode.spring6.factory.PersonFactoryBean"/>
+</beans>
