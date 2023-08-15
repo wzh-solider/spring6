@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="com.powernode.spring6.bean.User" init-method="init" destroy-method="destroy">
+        <property name="name" value="张三"/>
+    </bean>
+
+    <!-- 配置Bean后处理器 -->
+    <!-- 配置完之后，自动适配所有的Bean对象 -->
+    <bean class="com.powernode.spring6.bean.LogBeanPostProcessor"/>
+
+</beans>
