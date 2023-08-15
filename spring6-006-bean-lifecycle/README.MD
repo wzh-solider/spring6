@@ -31,7 +31,7 @@ Bean的生命周期，粗略分为五步：
 - 使用Bean：**调用Bean对象**
 - 销毁Bean：**调用Bean对象的destroy方法**（**同样，destroy方法也需要自己写，自己配置**）
 
-![image-20230816000417252](img/fiveStep_beanLifeCycle.png)
+![image-20230816000417252](img/fiveStep_beanLifecycle.png)
 
 **测试程序**
 
@@ -118,7 +118,7 @@ public class BeanLifecycleTest {
 }
 ```
 
-![image-20230815230353212](img/liveStep_beanLifeCycle_testResult.png)
+![image-20230815230353212](img/liveStep_beanLifecycle_testResult.png)
 
 
 
@@ -128,7 +128,7 @@ public class BeanLifecycleTest {
 >
 > 可以加入Bean后处理器
 
-![image-20230815233500787](img/eightStep_beanLifeCycle.png)
+![image-20230815233500787](img/eightStep_beanLifecycle.png)
 
 编写一个类，实现`BeanPostProcessor`类，并重写`before`和`after`方法
 
@@ -189,7 +189,7 @@ public class LogBeanPostProcessor implements BeanPostProcessor {
 
 **调用原先的测试模块儿**
 
-![image-20230815232032844](img/eightStep_beanLifeCycle_testResult.png)
+![image-20230815232032844](img/eightStep_beanLifecycle_testResult.png)
 
 
 
@@ -197,4 +197,4 @@ public class LogBeanPostProcessor implements BeanPostProcessor {
 
 > 如果根据源码追踪，可以将Bean的生命周期，划分为十步
 
-![image-20230815235534360](img/tenStep_beanLifeCycle.png)
+![image-20230815235534360](img/tenStep_beanLifecycle.png)
