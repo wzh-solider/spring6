@@ -18,14 +18,14 @@ public class LogBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName)
             throws BeansException {
-        System.out.println("Bean后处理器的before方法执行，即将开始初始化。。。");
+        System.out.println("第四步、Bean后处理器的before方法执行，即将开始初始化。。。");
         return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName)
             throws BeansException {
-        System.out.println("Bean后处理器的after方法执行，已完成初始化。。。");
+        System.out.println("第七步、Bean后处理器的after方法执行，已完成初始化。。。");
         return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
     }
 }

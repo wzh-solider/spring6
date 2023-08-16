@@ -1,5 +1,8 @@
 package com.powernode.spring6.bean;
 
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.*;
+
 /**
  * Bean的生命周期按照粗略的五步：
  * 1、实例化Bean对象（调用无参构造方法）
@@ -11,11 +14,13 @@ package com.powernode.spring6.bean;
  * @version 1.0
  * @since 1.0
  */
-public class User {
+public class User implements
+        BeanNameAware, BeanClassLoaderAware, BeanFactoryAware,
+        InitializingBean, DisposableBean {
     private String name;
 
     public User() {
-        System.out.println("User的无参构造器被调用");
+        System.out.println("第一步、User的无参构造器被调用");
     }
 
     public User(String name) {
@@ -23,12 +28,12 @@ public class User {
     }
 
     public void setName(String name) {
-        System.out.println("User的set方法被调用，传入参数：" + name);
+        System.out.println("第二步、User的set方法被调用，传入参数：" + name);
         this.name = name;
     }
 
-    public void init() {
-        System.out.println("User的init方法被调用，Bean对象被初始化");
+    public void initBean() {
+        System.out.println("第六步、User的initBean方法被调用，Bean对象被初始化");
     }
 
     @Override
@@ -38,7 +43,33 @@ public class User {
                 '}';
     }
 
-    public void destroy() {
-        System.out.println("User的destroy方法被调用，Bean对象被销毁");
+    public void destroyBean() {
+        System.out.println("第十步、User的destroyBean方法被调用，Bean对象被销毁");
+    }
+
+    @Override
+    public void setBeanClassLoader(ClassLoader classLoader) {
+        System.out.println("    ②设置Bean的类加载器");
+    }
+
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        System.out.println("    ③设置Bean工厂");
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        System.out.println("第三步、");
+        System.out.println("    ①设置Bean的名字");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("第五步、Bean初始化中执行");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("第九步、Bean对象销毁之前 | Bean对象使用之后执行了");
     }
 }
