@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/spring6-004-scope.iml" filepath="$PROJECT_DIR$/spring6-004-scope.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring6-005-bean-instantiation.iml" filepath="$PROJECT_DIR$/spring6-005-bean-instantiation.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring6-006-bean-lifecycle.iml" filepath="$PROJECT_DIR$/spring6-006-bean-lifecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring6-007-circular-dependency.iml" filepath="$PROJECT_DIR$/spring6-007-circular-dependency.iml" />
     </modules>
   </component>
 </project>
