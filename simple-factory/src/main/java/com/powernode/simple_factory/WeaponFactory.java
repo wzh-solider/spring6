@@ -14,7 +14,7 @@ public class WeaponFactory {
      * @return 武器对象
      */
     public static Weapon get(String weaponType) {
-        if (weaponType == null || weaponType.trim().length() == 0) {
+        if (weaponType == null || weaponType.trim().isEmpty()) {
             return null;
         }
 
