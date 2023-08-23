@@ -62,7 +62,7 @@ public class BeanInstantiationTest {
      * 使用factoryBean注入Date
      */
     @Test
-    public void testInstantiationDateByFactoryBean() throws Exception{
+    public void testInstantiationDateByFactoryBean() throws Exception {
         ApplicationContext applicationContext =
                 new ClassPathXmlApplicationContext("spring.xml");
         Student student = applicationContext.getBean("student", Student.class);
