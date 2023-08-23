@@ -1,13 +1,9 @@
 package com.powernode.spring6.test;
 
 import com.powernode.spring6.bean.*;
-import com.powernode.spring6.factory.GunFactory;
-import com.powernode.spring6.factory.PersonFactoryBean;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.util.Date;
 
 /**
  * @author Solider
