@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+    <bean id="userBean" class="com.powernode.bean.User">
+        <property name="name" value="李四"/>
+        <property name="age" value="20"/>
+    </bean>
+
+    <bean id="userDaoBean" class="com.powernode.bean.UserDao">
+        <property name="user" ref="userBean"/>
+    </bean>
+
+    <bean id="userServiceBean" class="com.powernode.service.UserService">
+        <property name="userDao" ref="userDaoBean"/>
+    </bean>
+</beans>
