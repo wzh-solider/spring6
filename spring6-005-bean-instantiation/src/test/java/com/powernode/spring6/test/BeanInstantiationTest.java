@@ -20,6 +20,7 @@ public class BeanInstantiationTest {
         ApplicationContext applicationContext =
                 new ClassPathXmlApplicationContext("spring.xml");
         User userBean = applicationContext.getBean("userBean", User.class);
+
     }
 
     /**
