@@ -17,6 +17,8 @@
         <option value="$PROJECT_DIR$/myspring-test/pom.xml" />
         <option value="$PROJECT_DIR$/review-annotation/pom.xml" />
         <option value="$PROJECT_DIR$/spring6-009-ioc-annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-003-dependency-injection/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-010-jdbc/pom.xml" />
       </list>
     </option>
   </component>

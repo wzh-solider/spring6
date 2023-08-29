@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- &lt;!&ndash; -->
+    <!--    采用use-default-filters="false"方式 -->
+    <!--         use-default-filters="false": 表示在这个包下关于Bean的注解不会被扫描到 -->
+    <!--         @Component、@Repository、@Service、@Controller，都会失效 -->
+    <!--    只对包含在标签中的注解生效 -->
+    <!--  &ndash;&gt; -->
+    <!-- <context:component-scan base-package="com.powernode.bean2" use-default-filters="false"> -->
+    <!--     &lt;!&ndash; -->
+    <!--         type: 过滤类型 -->
+    <!--         expression: 过滤类型的全限定类名 -->
+    <!--         只有Service注解的类才会被扫描到 -->
+    <!--      &ndash;&gt; -->
+    <!--     <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/> -->
+    <!-- </context:component-scan> -->
+
+    <!--
+        use-default-filters="true"方式
+            use-default-filters="true": 表示在这个包下关于Bean的注解会被扫描到
+            @Component、@Repository、@Service、@Controller，都会生效
+     -->
+    <context:component-scan base-package="com.powernode.bean2" use-default-filters="true">
+        <!--
+            type: 过滤类型
+            expression: 过滤类型的全限定类名
+            除了Service注解的类都会被扫描到
+         -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+    </context:component-scan>
+</beans>
