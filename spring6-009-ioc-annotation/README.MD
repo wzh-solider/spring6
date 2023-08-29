@@ -782,7 +782,7 @@ public class StudentServiceImpl implements StudentService {
 }
 ```
 
-![image-20230829201807866](D:\home\coding\java\spring6\spring6-009-ioc-annotation\imgs\AnnotationBy_@Resource_setter.png)
+![image-20230829201807866](imgs/AnnotationBy_@Resource_setter.png)
 
 
 
@@ -790,9 +790,9 @@ public class StudentServiceImpl implements StudentService {
 
 - 当@Resource没有找到名字时，会自动将属性名作为name，再次进行寻找
 
-  ![image-20230829202154785](D:\home\coding\java\spring6\spring6-009-ioc-annotation\imgs\ResourceNotName.png)
+  ![image-20230829202154785](imgs/ResourceNotName.png)
 
-![image-20230829202313005](D:\home\coding\java\spring6\spring6-009-ioc-annotation\imgs\ResourceNotName_Result.png)
+![image-20230829202313005](imgs/ResourceNotName_Result.png)
 
 - 当所有名字找不到时，才会根据类型进行装配
 
