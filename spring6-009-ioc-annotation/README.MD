@@ -147,7 +147,7 @@ public @interface Repository {
 
 **第一步：**
 
-![image-20230825183849040](D:\home\coding\java\spring6\spring6-009-ioc-annotation\imgs\aop.png)
+![aop.png](imgs/aop.png)
 
 
 
@@ -314,7 +314,7 @@ class E {
 </beans>
 ```
 
-![image-20230825194716516](D:\home\coding\java\spring6\spring6-009-ioc-annotation\imgs\annotationTest.png)
+![image-20230825194716516](imgs/annotationTest.png)
 
 
 
@@ -344,7 +344,7 @@ class E {
 </beans>
 ```
 
-![image-20230825195514284](D:\home\coding\java\spring6\spring6-009-ioc-annotation\imgs\annotationTest_true.png)
+![image-20230825195514284](imgs/annotationTest_true.png)
 
 
 
@@ -749,7 +749,7 @@ public class StudentServiceImpl implements StudentService {
 }
 ```
 
-![image-20230829201543510](D:\home\coding\java\spring6\spring6-009-ioc-annotation\imgs\AnnotationBy_@Resource_Filed.png)
+![image-20230829201543510](imgs/AnnotationBy_@Resource_Filed.png)
 
 ```java
 package cn.powernode.service.impl;
@@ -858,4 +858,4 @@ public class IoCAnnotationTest {
 }
 ```
 
-![image-20230829203750406](D:\home\coding\java\spring6\spring6-009-ioc-annotation\imgs\@Configuration.png)
+![image-20230829203750406](imgs/@Configuration.png)
