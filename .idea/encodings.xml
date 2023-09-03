@@ -29,5 +29,11 @@
     <file url="file://$PROJECT_DIR$/spring6-009-ioc-annotation/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring6-010-jdbc/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spring6-010-jdbc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-dynamic-cglib/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-dynamic-cglib/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-proxy-dynamic-jdk/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-proxy-dynamic-jdk/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-proxy-static/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring6-proxy-static/src/main/resources" charset="UTF-8" />
   </component>
 </project>

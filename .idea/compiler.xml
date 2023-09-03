@@ -9,9 +9,11 @@
         <module name="simple-factory" />
         <module name="spring6-007-circular-dependency" />
         <module name="spring6-002-first" />
+        <module name="spring6-proxy-static" />
         <module name="spring6-005-bean-instantiation" />
         <module name="spring6-004-scope" />
         <module name="review-annotation" />
+        <module name="spring6-dynamic-cglib" />
         <module name="myspring-test" />
         <module name="spring6-003-dependency-injection" />
         <module name="spring6-006-bean-lifecycle" />
@@ -22,5 +24,8 @@
         <module name="spring6-010-jdbc" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring6-proxy-dynamic-jdk" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

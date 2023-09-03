@@ -19,6 +19,9 @@
         <option value="$PROJECT_DIR$/spring6-009-ioc-annotation/pom.xml" />
         <option value="$PROJECT_DIR$/spring6-003-dependency-injection/pom.xml" />
         <option value="$PROJECT_DIR$/spring6-010-jdbc/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-proxy-static/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-proxy-dynamic/pom.xml" />
+        <option value="$PROJECT_DIR$/spring6-dynamic-cglib/pom.xml" />
       </list>
     </option>
   </component>
