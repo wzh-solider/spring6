@@ -55,7 +55,7 @@ public interface OrderService {
 ```java
 package com.powernode.service.impl;
 
-import com.powernode.service.OrderService;
+import com.powernode.service.transcation.OrderService;
 
 /**
  * 通过静态代理模式，实现相关业务方法
@@ -110,7 +110,7 @@ public class OrderServiceProxy implements OrderService {
 ```java
 package com.powernode.service.impl;
 
-import com.powernode.service.OrderService;
+import com.powernode.service.transcation.OrderService;
 
 /**
  * @author Solider
@@ -157,7 +157,7 @@ public class OrderServiceImpl implements OrderService {
 ```java
 package com.powernode.client;
 
-import com.powernode.service.OrderService;
+import com.powernode.service.transcation.OrderService;
 import com.powernode.service.impl.OrderServiceImpl;
 import com.powernode.service.impl.OrderServiceProxy;
 
