@@ -75,8 +75,20 @@ public class AccountServiceImpl implements AccountService {
         // 继续进行自己本身的事务
     }
 
-    // @Transactional(propagation = Propagation.REQUIRED)
-    // public void withdraw() {
-    //
-    // }
+    @Transactional(timeout = 10)
+    public void withdraw() {
+        // 先执行DML语句
+        accountDao.insert(new Account("act-005", 1000.0));
+
+        /**
+         * 睡眠15秒
+         */
+        try {
+            Thread.sleep(15 * 1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        // 下面没有DML语句，所以不会超时异常
+    }
 }

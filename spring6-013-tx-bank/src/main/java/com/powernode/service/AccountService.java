@@ -22,4 +22,6 @@ public interface AccountService {
      * 保存业务
      */
     void save(Account act);
+
+    void withdraw();
 }

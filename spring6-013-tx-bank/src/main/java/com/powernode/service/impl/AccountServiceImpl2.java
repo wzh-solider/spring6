@@ -36,4 +36,9 @@ public class AccountServiceImpl2 implements AccountService {
         String str = null;
         str.length();
     }
+
+    @Override
+    public void withdraw() {
+
+    }
 }
