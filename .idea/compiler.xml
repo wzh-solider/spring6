@@ -14,10 +14,12 @@
         <module name="spring6-012-aop-realapp" />
         <module name="spring6-011-spring-aspectj-aop-anno" />
         <module name="spring6-005-bean-instantiation" />
+        <module name="spring6-015-mybatis" />
         <module name="spring6-004-scope" />
         <module name="review-annotation" />
         <module name="spring6-dynamic-cglib" />
         <module name="myspring-test" />
+        <module name="spring6-014-junit" />
         <module name="spring6-003-dependency-injection" />
         <module name="spring6-006-bean-lifecycle" />
         <module name="myspring" />

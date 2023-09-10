@@ -3,5 +3,6 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/spring6-010-jdbc/src/test/java/com/powernode/jdbc/Spring6JDBCTest.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/spring6-013-tx-bank/src/main/java/com/powernode/dao/impl/AccountDaoImpl.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/spring6-015-mybatis/src/main/java/com/powernode/bank/mapper/AccountMapper.java" dialect="GenericSQL" />
   </component>
 </project>

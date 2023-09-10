@@ -231,3 +231,85 @@ public enum Propagation {
 @Transactional(timeout = 10)
 ```
 
+- 注意，事务的超时时间，依据的是整个**事务执行完所有的DML语句**后
+
+  - 超时，报异常
+
+  ```java
+  @Transactional(timeout = 10)
+      public void withdraw() {
+          /**
+           * 睡眠15秒
+           */
+          try {
+              Thread.sleep(15 * 1000);
+          } catch (InterruptedException e) {
+              throw new RuntimeException(e);
+          }
+          accountDao.insert(new Account("act-005", 1000.0));
+      }
+  ```
+
+  ![image-20230907170243049](imgs/image-20230907170243049.png)
+
+​	
+
+```java
+@Transactional(timeout = 10)
+public void withdraw() {
+    // 先执行DML语句
+    accountDao.insert(new Account("act-005", 1000.0));
+
+    /**
+     * 睡眠15秒
+     */
+    try {
+        Thread.sleep(15 * 1000);
+    } catch (InterruptedException e) {
+        throw new RuntimeException(e);
+    }
+
+    // 下面没有DML语句，所以不会超时异常
+}
+```
+
+![image-20230907170609420](imgs/image-20230907170609420.png)
+
+
+
+#### 只读事务
+
+```java
+// 设置只读事务
+@Transactional(readonly = true)
+```
+
+当前事务设置为只读事务，表示该事务不可修改，只能执行select语句
+
+此特性的作用是：**启动spring的优化策略，提高select语句执行的效率**
+
+如果该事务中确实没有增删改查操作，建议设置为只读事务
+
+
+
+#### 事务回滚
+
+
+
+##### 设置碰见哪些异常，回滚事务
+
+```java
+@Transactional(rollbackFor = RuntimeException.class)
+```
+
+- 只有发生`RuntimeException`异常，及其子类异常才会回滚
+
+
+
+##### 设置碰见哪些异常，不回滚事务
+
+```java
+@Transactional(noRollbackFor = NullPointerException.class)
+```
+
+- 发生`NullPointerException`异常，及其子类异常不会回滚事务
