@@ -21,7 +21,7 @@
 
 Spring用的是双重判断加锁的单例模式
 
-![image-20230910231631428](C:\Users\24603\AppData\Roaming\Typora\typora-user-images\image-20230910231631428.png)
+![image-20230910231631428](image-20230910231631428.png)
 
 
 
